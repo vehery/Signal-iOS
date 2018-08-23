@@ -32,3 +32,33 @@ public func AssertIsOnMainThread(file: String = #file,
         return
     }
 }
+
+public func owsProdFail(_ message: String) {
+    Logger.error(message)
+    Logger.flush()
+    assertionFailure(message)
+}
+
+// Once we're on Swift4.2 we can mark this as inlineable
+// @inlinable
+public func owsFail(_ rawMessage: String,
+                    file: String = #file,
+                    function: String = #function,
+                    line: Int = #line) {
+    let message = "\(file) \(function) \(line): \(rawMessage)"
+    Logger.error(message)
+    Logger.flush()
+    assertionFailure(message)
+}
+
+// Once we're on Swift4.2 we can mark this as inlineable
+// @inlinable
+public func owsProdFail(_ rawMessage: String,
+                        file: String = #file,
+                        function: String = #function,
+                        line: Int = #line) {
+    let message = "\(file) \(function) \(line): \(rawMessage)"
+    Logger.error(message)
+    Logger.flush()
+    exit(0)
+}
