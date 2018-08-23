@@ -15,41 +15,6 @@ public func assertOnQueue(_ queue: DispatchQueue) {
     }
 }
 
-public func owsFail(_ message: String) {
-    Logger.error(message)
-    Logger.flush()
-<<<<<<< HEAD
-    assertionFailure(message)
-||||||| parent of 7b8e9aa30... Add owsNotImplemented().
-    assertionFailure(owsFormatLogMessage(logString, file: file, function: function, line: line))
-}
-
-// Once we're on Swift4.2 we can mark this as inlineable
-// @inlinable
-public func owsProdFail(_ logString: String,
-                        file: String = #file,
-                        function: String = #function,
-                        line: Int = #line) {
-    Logger.error(logString, file: file, function: function, line: line)
-    Logger.flush()
-    exit(0)
-=======
-    assertionFailure(owsFormatLogMessage(logString, file: file, function: function, line: line))
-}
-
-// Once we're on Swift4.2 we can mark this as inlineable
-// @inlinable
-public func owsProdFail(_ logString: String,
-                        file: String = #file,
-                        function: String = #function,
-                        line: Int = #line) {
-    Logger.error(logString, file: file, function: function, line: line)
-    Logger.flush()
-    // TODO: Should we use this or fatalError()?
-    exit(0)
->>>>>>> 7b8e9aa30... Add owsNotImplemented().
-}
-
 // Once we're on Swift4.2 we can mark this as inlineable
 // @inlinable
 public func owsNotImplemented(file: String = #file,
@@ -97,5 +62,6 @@ public func owsProdFail(_ rawMessage: String,
     let message = "\(file) \(function) \(line): \(rawMessage)"
     Logger.error(message)
     Logger.flush()
+    // TODO: Should we use this or fatalError()?
     exit(0)
 }
