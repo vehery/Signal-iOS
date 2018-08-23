@@ -29,7 +29,8 @@ class SAEFailedViewController: UIViewController {
 
     @available(*, unavailable, message:"use other constructor instead.")
     required init?(coder aDecoder: NSCoder) {
-        fatalError("\(#function) is unimplemented.")
+        owsNotImplemented()
+        fatalError()
     }
 
     override func loadView() {

@@ -21,7 +21,8 @@ class GifPickerLayout: UICollectionViewLayout {
 
     @available(*, unavailable, message:"use other constructor instead.")
     required init?(coder aDecoder: NSCoder) {
-        fatalError("\(#function) is unimplemented.")
+        owsNotImplemented()
+        fatalError()
     }
 
     override init() {

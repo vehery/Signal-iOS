@@ -26,7 +26,8 @@ public class ModalActivityIndicatorViewController: OWSViewController {
 
     @available(*, unavailable, message:"use other constructor instead.")
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("\(#function) is unimplemented.")
+        owsNotImplemented()
+        fatalError()
     }
 
     public required init(canCancel: Bool) {
