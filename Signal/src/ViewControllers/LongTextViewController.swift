@@ -21,8 +21,7 @@ public class LongTextViewController: OWSViewController {
 
     @available(*, unavailable, message:"use other constructor instead.")
     public required init?(coder aDecoder: NSCoder) {
-        owsNotImplemented()
-        fatalError()
+        fatalError("\(#function) is unimplemented.")
     }
 
     @objc

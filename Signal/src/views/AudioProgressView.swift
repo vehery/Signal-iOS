@@ -48,8 +48,7 @@ import SignalServiceKit
 
     @available(*, unavailable, message:"use other constructor instead.")
     @objc public required init?(coder aDecoder: NSCoder) {
-        owsNotImplemented()
-        fatalError()
+        fatalError("\(#function) is unimplemented.")
     }
 
     public required init() {

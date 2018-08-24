@@ -17,14 +17,6 @@ public func assertOnQueue(_ queue: DispatchQueue) {
 
 // Once we're on Swift4.2 we can mark this as inlineable
 // @inlinable
-public func owsNotImplemented(file: String = #file,
-                              function: String = #function,
-                              line: Int = #line) {
-    owsProdFail("\(function) is not implemented.", file: file, function: function, line: line)
-}
-
-// Once we're on Swift4.2 we can mark this as inlineable
-// @inlinable
 public func AssertIsOnMainThread(file: String = #file,
                                  function: String = #function,
                                  line: Int = #line) {
@@ -35,18 +27,13 @@ public func AssertIsOnMainThread(file: String = #file,
     }
 }
 
-public func owsProdFail(_ message: String) {
-    Logger.error(message)
-    Logger.flush()
-    assertionFailure(message)
-}
-
 // Once we're on Swift4.2 we can mark this as inlineable
 // @inlinable
 public func owsFail(_ rawMessage: String,
                     file: String = #file,
                     function: String = #function,
                     line: Int = #line) {
+    // TODO: Format using owsFormatLogMessage() once it is merged.
     let message = "\(file) \(function) \(line): \(rawMessage)"
     Logger.error(message)
     Logger.flush()
@@ -55,13 +42,11 @@ public func owsFail(_ rawMessage: String,
 
 // Once we're on Swift4.2 we can mark this as inlineable
 // @inlinable
-public func owsProdFail(_ rawMessage: String,
+public func owsProdExit(_ rawMessage: String,
                         file: String = #file,
                         function: String = #function,
                         line: Int = #line) {
-    let message = "\(file) \(function) \(line): \(rawMessage)"
-    Logger.error(message)
-    Logger.flush()
-    // TODO: Should we use this or fatalError()?
-    exit(0)
+
+    owsFail(rawMessage, file: file, function: function, line: line)
+    fatalError()
 }

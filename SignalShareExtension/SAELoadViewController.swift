@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2017 Open Whisper Systems. All rights reserved.
+//  Copyright (c) 2018 Open Whisper Systems. All rights reserved.
 //
 
 import UIKit
@@ -50,8 +50,7 @@ class SAELoadViewController: UIViewController {
 
     @available(*, unavailable, message:"use other constructor instead.")
     required init?(coder aDecoder: NSCoder) {
-        owsNotImplemented()
-        fatalError()
+        fatalError("\(#function) is unimplemented.")
     }
 
     override func loadView() {
@@ -64,7 +63,7 @@ class SAELoadViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.ows_signalBrandBlue
 
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:.whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         self.activityIndicator = activityIndicator
         self.view.addSubview(activityIndicator)
         activityIndicator.autoCenterInSuperview()

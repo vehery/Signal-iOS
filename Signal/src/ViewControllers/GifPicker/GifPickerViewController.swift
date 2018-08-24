@@ -55,8 +55,7 @@ class GifPickerViewController: OWSViewController, UISearchBarDelegate, UICollect
 
     @available(*, unavailable, message:"use other constructor instead.")
     required init?(coder aDecoder: NSCoder) {
-        owsNotImplemented()
-        fatalError()
+        fatalError("\(#function) is unimplemented.")
     }
 
     @objc
